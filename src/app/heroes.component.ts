@@ -33,4 +33,15 @@ export class HeroesComponent implements OnInit {
     gotoDetail() {
         this.router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
     }
+    
+    addHero() {
+        this.addingHero = true;
+        this.selectedHero = null;
+    }
+
+    close(savedHero: Hero) {
+        this.addingHero = false;
+        if (savedHero) { this.getHeroes(); }
+    }
+
 }
