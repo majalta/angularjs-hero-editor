@@ -1,3 +1,4 @@
+const helpers = require('./config/helpers');
 var webpack = require("webpack");
 
 /*
@@ -120,5 +121,15 @@ module.exports = {
             template: 'src/index.html',
             chunksSortMode: 'dependency'
         })
-    ]
+    ],
+    devServer: {
+        port: '8080',
+        host: 'localhost',
+        historyApiFallback: true,
+        watchOptions: {
+          aggregateTimeout: 300,
+          poll: 1000
+        },
+        outputPath: helpers.root('dist')
+    },
 }
